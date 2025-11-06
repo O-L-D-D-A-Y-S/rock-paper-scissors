@@ -13,19 +13,6 @@ function choiceFromIntToString(num){
     return "scissors"
 }
 
-function playRound(){
-    let humanChoice = getHumanChoice()
-    let computerChoice = getComputerChoice()
-    if ((computerChoice == "paper" && humanChoice == "rock") || (computerChoice == "rock" && humanChoice == "scissors") || (computerChoice == "scissors" && humanChoice == "paper")){
-        return 0
-    }
-    else if(computerChoice == humanChoice){
-        return -1
-    }
-    else {
-        return 1
-    }
-}
 
 
 function getHumanChoice(){
@@ -36,4 +23,50 @@ function getHumanChoice(){
         num = +humanChoice
     }while(num != 0 && num != 1 && num != 2)
     return choiceFromIntToString(num)
+}
+
+function playRound(){
+    let humanChoice = getHumanChoice()
+    let computerChoice = getComputerChoice()
+    if (computerChoice == humanChoice){
+        alert("Tie")
+        return -1
+    }
+    else if((computerChoice == "paper" && humanChoice == "rock") || (computerChoice == "rock" && humanChoice == "scissors") || (computerChoice == "scissors" && humanChoice == "paper")){
+        alert(`You lose ${computerChoice} beats ${humanChoice}`)
+        return 0
+    }
+    else {
+        alert(`You won ${humanChoice} beats ${computerChoice}`)
+        return 1
+    }
+}
+
+function playGame(){
+    let result = undefined
+    let computerScore = 0
+    let humanScore = 0
+    for (let i = 0;i<5;i++){
+        result = playRound()
+        if (result == 1){
+            humanScore++
+        }
+        else if(result == 0){
+            computerScore++
+        }
+    }
+    if (humanScore>computerScore){
+        alert("You Won")
+    }
+    else if(computerScore>humanScore){
+        alert("You Lost")
+    }
+    else{
+        alert("Tie")
+    }
+
+}
+
+function startGame(){
+    playGame()
 }
