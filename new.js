@@ -12,3 +12,13 @@ function choiceFromIntToString(num){
     }
     return "scissors"
 }
+
+
+function getHumanChoice(){
+    let humanChoice = undefined
+    let num = undefined
+    do{
+        humanChoice = prompt("Enter 0 for rock, 1 for paper and 2 for scissors: ")
+        num = +humanChoice
+    }while(num != 0 && num != 1 && num != 2)
+}
