@@ -1,5 +1,5 @@
 function getComputerChoice(){
-    let choice = Math.floor(Math.random() * (2 - 0)) + 0;
+    let choice = Math.floor(Math.random() * (3 - 0)) + 0;
     return choiceFromIntToString(choice)
 }
 
@@ -33,11 +33,11 @@ function playRound(){
         return -1
     }
     else if((computerChoice == "paper" && humanChoice == "rock") || (computerChoice == "rock" && humanChoice == "scissors") || (computerChoice == "scissors" && humanChoice == "paper")){
-        alert(`You lose ${computerChoice} beats ${humanChoice}`)
+        alert(`You losed computer choose ${computerChoice} and you ${humanChoice}`)
         return 0
     }
     else {
-        alert(`You won ${humanChoice} beats ${computerChoice}`)
+        alert(`You won computer choose ${computerChoice} and you ${humanChoice}`)
         return 1
     }
 }
@@ -54,15 +54,16 @@ function playGame(){
         else if(result == 0){
             computerScore++
         }
+        alert(`Score \nhuman : ${humanScore}\ncomputer : ${computerScore}`)
     }
     if (humanScore>computerScore){
-        alert("You Won")
+        alert("You Won The Game")
     }
     else if(computerScore>humanScore){
-        alert("You Lost")
+        alert("You Lost The Game")
     }
     else{
-        alert("Tie")
+        alert("There was a tie")
     }
 
 }
