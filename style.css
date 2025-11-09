@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+html{
+    overflow-x: hidden;
+}
+
+.round{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    overflow-x: hidden;
+    font-size: 38px;
+}
+
+.score{
+    width: 100vw;
+    display: flex;
+    overflow-x: hidden;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tableChild{
+    width: 80vw;
+    border: 2px solid black;
+}
+
+.table *{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 60vw;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 36px;
+}
+
+.choice{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 100vw;
+    display: flex;
+    min-height: 300px;
+    justify-content: center;
+}
+
+.choiceChild{
+    display: flex;
+    width: 80%;
+    flex-shrink: 0;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.choiceChild > div{
+    width: 300px;
+}
+
+.card{
+    border: 6px solid gray;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover{
+    background-color: gray;
+}
+
+.card img{
+    width: 200px;
+}
+
+.last{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.play{
+    all: unset;
+    background-color: blueviolet;
+    color: White;
+    width: 80px;
+    height: 30px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 40px;
+}

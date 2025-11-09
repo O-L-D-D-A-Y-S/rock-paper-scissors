@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
     <script src="new.js"></script>
 </head>
+
 <body>
-    <button class="ready" onclick="startGame()">start</button>
+    <main>
+        <section class="round">
+            <div class="roundDetail">Round 1</div>
+        </section>
+        <section class="score">
+            <div class="table score">
+                <div class="tableChild">
+                    <p>Human</p>
+                    <p class="humanScore">0</p>
+                </div>
+                <div class="tableChild">
+                    <p>Computer</p>
+                    <p class="computerScore">0</p>
+                </div>
+            </div>
+        </section>
+        <section class="choice">
+            <div class="choiceChild">
+                <div>
+                    <div class="card">
+                        <img src="images/paper-removebg-preview (1).png" alt="paper" width="200px">
+                        <p>Paper</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="card">
+                        <img src="images/Rock-removebg-preview (2).png" alt="rock" width="200px">
+                        <p>Rock</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="card">
+                        <img src="images/sciss-removebg-preview.png" alt="scissors" width="200px">
+                        <p>Scissors</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="last">
+            <button class="play">Play</button>
+        </section>
+    </main>
 </body>
+
 </html>
