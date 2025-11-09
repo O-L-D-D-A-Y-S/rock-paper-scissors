@@ -1,13 +1,13 @@
-function getComputerChoice(){
+function getComputerChoice() {
     let choice = Math.floor(Math.random() * (3 - 0)) + 0;
     return choiceFromIntToString(choice)
 }
 
-function choiceFromIntToString(num){
-    if (num==0){
+function choiceFromIntToString(num) {
+    if (num == 0) {
         return "rock"
     }
-    else if (num==1){
+    else if (num == 1) {
         return "paper"
     }
     return "scissors"
@@ -15,59 +15,89 @@ function choiceFromIntToString(num){
 
 
 
-function getHumanChoice(){
-    let humanChoice = undefined
-    let num = undefined
-    do{
-        humanChoice = prompt("Enter 0 for rock, 1 for paper and 2 for scissors: ")
-        num = +humanChoice
-    }while(num != 0 && num != 1 && num != 2)
-    return choiceFromIntToString(num)
-}
 
-function playRound(){
-    let humanChoice = getHumanChoice()
+
+function playRound(humanChoice) {
+    let resultOfRound = document.querySelector(".defineResult")
     let computerChoice = getComputerChoice()
-    if (computerChoice == humanChoice){
-        alert("Tie")
+    if (computerChoice == humanChoice) {
+        resultOfRound.textContent = "Tie"
         return -1
     }
-    else if((computerChoice == "paper" && humanChoice == "rock") || (computerChoice == "rock" && humanChoice == "scissors") || (computerChoice == "scissors" && humanChoice == "paper")){
-        alert(`You losed computer choose ${computerChoice} and you ${humanChoice}`)
+    else if ((computerChoice == "paper" && humanChoice == "rock") || (computerChoice == "rock" && humanChoice == "scissors") || (computerChoice == "scissors" && humanChoice == "paper")) {
+        resultOfRound.textContent = `Computer Wins You Choosed ${humanChoice} while computer ${computerChoice}`
         return 0
     }
     else {
-        alert(`You won computer choose ${computerChoice} and you ${humanChoice}`)
+        resultOfRound.textContent = `You Won. You Choosed ${humanChoice} while computer ${computerChoice}`
         return 1
     }
 }
 
-function playGame(){
-    let result = undefined
-    let computerScore = 0
-    let humanScore = 0
-    for (let i = 0;i<5;i++){
-        result = playRound()
-        if (result == 1){
-            humanScore++
-        }
-        else if(result == 0){
-            computerScore++
-        }
-        alert(`Score \nhuman : ${humanScore}\ncomputer : ${computerScore}`)
-    }
-    if (humanScore>computerScore){
-        alert("You Won The Game")
-    }
-    else if(computerScore>humanScore){
-        alert("You Lost The Game")
-    }
-    else{
-        alert("There was a tie")
-    }
+function playGame(humanChoice) {
+    let human = document.querySelector(".humanScore")
+    let computer = document.querySelector(".computerScore")
+    let rounds = document.querySelector(".rounds")
 
+
+
+    let humanScore = Number(human.textContent)
+    let computerScore = Number(computer.textContent)
+    let round = Number(rounds.textContent)
+
+    let rst = playRound(humanChoice)
+    if (rst == 0) {
+        computerScore += 1
+    }
+    else if (rst == 1) {
+        humanScore += 1
+    }
+    round++
+
+    if (round > 5) {
+        declareWinner(humanScore, computerScore)
+        rounds.textContent = 1
+        human.textContent = 0
+        computer.textContent = 0
+    }
+    else {
+        rounds.textContent = round
+        human.textContent = humanScore
+        computer.textContent = computerScore
+    }
 }
 
-function startGame(){
-    playGame()
+document.addEventListener("click", (e) => {
+    const cards = document.querySelectorAll(".card")
+    if (e.target.matches(".card") || e.target.matches(".cardImg")) {
+        cards.forEach((card) => {
+            if (card === e.target || card === e.target.parentNode) {
+                card.style.backgroundColor = "gray"
+            }
+            else {
+                card.style.backgroundColor = "white"
+            }
+
+        })
+    }
+    else if (e.target.matches(".Play")) {
+        cards.forEach((card) => {
+            if (card.style.backgroundColor == "gray") {
+                playGame(card.querySelector("p").id)
+            }
+        })
+    }
+})
+
+
+function declareWinner(humanScore, computerScore) {
+    if (humanScore > computerScore) {
+        alert("You won")
+    }
+    else if (computerScore > humanScore) {
+        alert("You Lost")
+    }
+    else {
+        alert("Tie")
+    }
 }

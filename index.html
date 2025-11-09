@@ -12,7 +12,7 @@
 <body>
     <main>
         <section class="round">
-            <div class="roundDetail">Round 1</div>
+            <div class="roundDetail">Round <p class="rounds">1</p></div>
         </section>
         <section class="score">
             <div class="table score">
@@ -30,26 +30,29 @@
             <div class="choiceChild">
                 <div>
                     <div class="card">
-                        <img src="images/paper-removebg-preview (1).png" alt="paper" width="200px">
-                        <p>Paper</p>
+                        <img class="cardImg" src="images/paper-removebg-preview (1).png" alt="paper" width="200px">
+                        <p id="paper">paper</p>
                     </div>
                 </div>
                 <div>
                     <div class="card">
-                        <img src="images/Rock-removebg-preview (2).png" alt="rock" width="200px">
-                        <p>Rock</p>
+                        <img class="cardImg" src="images/Rock-removebg-preview (2).png" alt="rock" width="200px">
+                        <p id="rock">rock</p>
                     </div>
                 </div>
                 <div>
                     <div class="card">
-                        <img src="images/sciss-removebg-preview.png" alt="scissors" width="200px">
-                        <p>Scissors</p>
+                        <img class="cardImg" src="images/sciss-removebg-preview.png" alt="scissors" width="200px">
+                        <p id="scissors">scissors</p>
                     </div>
                 </div>
             </div>
         </section>
+        <section class="result">
+            <p class="defineResult"></p>
+        </section>
         <section class="last">
-            <button class="play">Play</button>
+            <button class="Play">Play</button>
         </section>
     </main>
 </body>
