@@ -1,3 +1,3 @@
 # rock-paper-scissors
 
-a simple rock-paper-scissors console based game
+a simple (GUI) rock-paper-scissors game 
